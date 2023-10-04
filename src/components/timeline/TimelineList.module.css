@@ -1,0 +1,26 @@
+.timeline {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+@media (max-width: 768px) {
+  .timeline {
+    justify-content: center;
+  }
+}
+
+.timeline .centerLine {
+  position: absolute;
+  height: 100%;
+  left: 50%;
+  bottom: 0%;
+  z-index: 2;
+}
