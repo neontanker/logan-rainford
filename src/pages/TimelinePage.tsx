@@ -1,6 +1,6 @@
 import React from "react";
-import TimelineList from "../components/timeline/TimelineList";
 import { motion } from "framer-motion";
+import TimelineList from "../components/timeline/TimelineList";
 
 const TimelinePage: React.FC<{ pageId: string }> = ({ pageId }) => {
   return (

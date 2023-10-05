@@ -1,6 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-
 const avatar = require("../images/profile6.png");
 
 const HomePage: React.FC<{ pageId: string }> = ({ pageId }) => {
