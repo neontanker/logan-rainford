@@ -1,3 +1,36 @@
+/* BoxAnimation */
+.itemContainer.flipped .connector {
+  left: -2rem;
+  transform: scaleX(-1);
+}
+.connector {
+  position: absolute;
+  width: 3rem;
+  right: -2rem;
+  top: 0px;
+  z-index: 1;
+}
+.projectBorder {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  transform: scaleX(-1);
+  z-index: 2;
+  pointer-events: none;
+  @-moz-document url-prefix() {
+    border-radius: 0px;
+  }
+}
+.itemContainer.flipped .projectBorder {
+  transform: scaleX(1);
+}
+.projectBorder rect {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 .itemContainer {
   position: relative;
   display: flex;
@@ -12,16 +45,7 @@
   margin-bottom: 5rem;
 }
 
-.itemContainer .connector {
-  position: absolute;
-  width: 3rem;
-  right: -2rem;
-  top: 0px;
-  z-index: 1;
-}
-
 .timelineItem {
-  /* border: 1px solid #ddd; */
   position: relative;
   border-radius: 10px;
   background-color: #1f1b32;
@@ -32,32 +56,6 @@
   align-self: flex-end;
 }
 
-/* */
-.itemContainer.flipped .connector {
-  left: -2rem;
-  transform: scaleX(-1);
-}
-.projectBorder {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  border-radius: 10px;
-  transform: scaleX(-1);
-  z-index: 2;
-  pointer-events: none;
-  @-moz-document url-prefix() {
-    border-radius: 0px;
-  }
-}
-
-.itemContainer.flipped .projectBorder {
-  transform: scaleX(1);
-}
-.projectBorder rect {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
 .contentContainer {
   text-align: center;
   border-radius: 5px;
@@ -65,15 +63,6 @@
   flex-direction: column;
   padding: 2rem;
 }
-/* .odd {
-  float: right;
-  clear: right;
-}
-
-.even {
-  float: left;
-  clear: left;
-} */
 .projectTitle {
   display: flex;
   flex-direction: column;

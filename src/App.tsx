@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import Page1 from "./pages/FirstSlide";
-import Page2 from "./pages/SecondPage";
-import Page3 from "./pages/ThirdPage";
+import { motion } from "framer-motion";
+import HomePage from "./pages/HomePage";
+import TimelinePage from "./pages/TimelinePage";
+import AboutPage from "./pages/AboutPage";
 import "./App.css";
-import NextPageButton from "./components/NextPageButton";
+import Page from "./components/Page";
 
 const App: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<number>(0);
@@ -20,21 +20,15 @@ const App: React.FC = () => {
   //@TODO: integrate background images "url(" + require("./images/sky.png") + ")"
   const pages = [
     {
-      page: (
-        <Page1 key="page1" onNextPage={handleNextPage} pageId={"home-page"} />
-      ),
+      page: <HomePage key="home" pageId="home" />,
       background: "#1F1B32",
     },
     {
-      page: (
-        <Page2 key="page2" onNextPage={handleNextPage} pageId={"timeline"} />
-      ),
+      page: <TimelinePage key="timeline" pageId="timeline" />,
       background: "#1F1B32",
     },
     {
-      page: (
-        <Page3 key="page3" onNextPage={handleNextPage} pageId={"about-me"} />
-      ),
+      page: <AboutPage key="about" pageId="about" />,
       background: "#1F1B32",
     },
   ];
@@ -53,12 +47,10 @@ const App: React.FC = () => {
         }}
         className="background"
       ></motion.div>
-      <AnimatePresence mode="wait">
-        <>
-          {pages[currentPage].page}
-          <NextPageButton onNextPage={handleNextPage} isLastPage={isLastPage} />
-        </>
-      </AnimatePresence>
+
+      <Page onNextPage={handleNextPage} isLastPage={isLastPage}>
+        {pages[currentPage].page}
+      </Page>
     </div>
   );
 };

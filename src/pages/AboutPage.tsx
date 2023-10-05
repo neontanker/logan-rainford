@@ -1,13 +1,17 @@
 import React from "react";
-import Page from "../components/Page";
+import { motion } from "framer-motion";
 const image = require("../images/Logan_Meghan.png");
 
-const ThirdPage: React.FC<{
-  onNextPage: () => void;
-  pageId: string;
-}> = ({ onNextPage, pageId }) => {
+const AboutPage: React.FC<{ pageId: string }> = ({ pageId }) => {
   return (
-    <Page onNextPage={onNextPage} pageId={pageId}>
+    <motion.div
+      key={pageId}
+      initial={{ opacity: 0, y: 500 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -500 }}
+      transition={{ duration: 0.5, type: "tween" }}
+      className={`${pageId} section`}
+    >
       <div className="title">
         <h1>About me</h1>
       </div>
@@ -35,8 +39,8 @@ const ThirdPage: React.FC<{
           </a>
         </p>
       </div>
-    </Page>
+    </motion.div>
   );
 };
 
-export default ThirdPage;
+export default AboutPage;

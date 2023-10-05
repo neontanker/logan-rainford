@@ -1,24 +1,17 @@
 import { ReactNode } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+import NextPageButton from "./NextPageButton";
 
 const Page: React.FC<{
   onNextPage: () => void;
   children: ReactNode;
-  pageId: string;
-}> = ({ onNextPage, children, pageId }) => {
+  isLastPage: boolean;
+}> = ({ onNextPage, children, isLastPage }) => {
   return (
-    <div className={`${pageId} slide`}>
+    <div className="page">
       <div className="container">
-        <motion.div
-          key={pageId}
-          initial={{ opacity: 0, y: 500 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -500 }}
-          transition={{ duration: 0.5, type: "tween" }}
-          className="section"
-        >
-          {children}
-        </motion.div>
+        <AnimatePresence mode="wait">{children}</AnimatePresence>
+        <NextPageButton onNextPage={onNextPage} isLastPage={isLastPage} />
       </div>
     </div>
   );

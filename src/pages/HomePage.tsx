@@ -1,14 +1,18 @@
 import React from "react";
-import Page from "../components/Page";
+import { motion } from "framer-motion";
 
 const avatar = require("../images/profile6.png");
 
-const FirstSlide: React.FC<{
-  onNextPage: () => void;
-  pageId: string;
-}> = ({ onNextPage, pageId }) => {
+const HomePage: React.FC<{ pageId: string }> = ({ pageId }) => {
   return (
-    <Page onNextPage={onNextPage} pageId={pageId}>
+    <motion.div
+      key={pageId}
+      initial={{ opacity: 0, y: 500 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -500 }}
+      transition={{ duration: 0.5, type: "tween" }}
+      className={`${pageId} section`}
+    >
       <h1>Logan Rainford</h1>
       <h4>Junior Developer</h4>
       <div className="avatar">
@@ -24,8 +28,8 @@ const FirstSlide: React.FC<{
           businesses work.
         </p>
       </div>
-    </Page>
+    </motion.div>
   );
 };
 
-export default FirstSlide;
+export default HomePage;

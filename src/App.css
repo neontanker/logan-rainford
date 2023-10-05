@@ -28,7 +28,7 @@ a:active {
   color: #e9f3e8;
 }
 
-.slide {
+.page {
   margin: auto;
   max-width: 100vw;
   min-height: 100vh;
@@ -73,7 +73,7 @@ a:active {
   padding-right: 1rem;
   padding-left: 1rem;
 }
-.about-me .image-container {
+.about .image-container {
   margin: auto;
   max-width: 500px;
 }
