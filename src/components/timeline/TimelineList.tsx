@@ -2,15 +2,6 @@ import React from "react";
 import { motion } from "framer-motion";
 import classes from "./TimelineList.module.css";
 import TimelineItem from "./TimelineItem";
-export interface Project {
-  id: string;
-  title: string;
-  type: string;
-  excerpt: string;
-  skills: string[];
-  color: string;
-  imageSrc: string;
-}
 const mint = "#2BB897";
 const celadon = "#B9D2B1";
 // const honeyDew = "#E9F3E8";
@@ -36,8 +27,12 @@ const projects: Project[] = [
       "GTM",
       "SEO",
     ],
+    link: "https://reech.agency/",
     color: mint,
-    imageSrc: require("../../images/reech.png"),
+    image: {
+      src: require("../../images/logo/reech.png"),
+      alt: "Logo for Reech Media",
+    },
   },
   {
     id: "Amanda",
@@ -46,8 +41,12 @@ const projects: Project[] = [
     excerpt:
       "Amanda Hillier is an artist and designer who needed a place online to show off her work. I worked closely with Amanda to create the website she desired.",
     skills: ["HTML", "CSS", "WordPress", "Server admin", "Cloudflare"],
+    link: "https://amandahillier.co.uk/",
     color: celadon,
-    imageSrc: require("../../images/Amanda.png"),
+    image: {
+      src: require("../../images/logo/Amanda.png"),
+      alt: "Logo for Amanda Hillier's website",
+    },
   },
   {
     id: "LRS",
@@ -64,8 +63,12 @@ const projects: Project[] = [
       "Intranet",
       "VOIP",
     ],
+    link: "https://lrs-systems.co.uk/",
     color: rose,
-    imageSrc: require("../../images/LRS.svg").default,
+    image: {
+      src: require("../../images/logo/LRS.svg").default,
+      alt: "Logo for Liquid Roofing Systems",
+    },
   },
   {
     id: "vandiest",
@@ -74,8 +77,12 @@ const projects: Project[] = [
     excerpt:
       "René van Diest is a Psychotherapist based in the Netherlands, during this project I had to overcome challenges involving the language barrier, bespoke features and geographic location with the website setup.",
     skills: ["HTML", "CSS", "WordPress", "Server Admin", "Cloudflare"],
+    link: "https://praktijkvandiest.nl/",
     color: mint,
-    imageSrc: require("../../images/vandiest.jpg"),
+    image: {
+      src: require("../../images/logo/vandiest.jpg"),
+      alt: "Logo for René van Diest's website",
+    },
   },
   {
     id: "medstate",
@@ -84,8 +91,12 @@ const projects: Project[] = [
     excerpt:
       "Meditational State is a youtube channel with over 400K subscribers, I worked with another developer and assisted with the logo design, website and e-commerce build and setup.",
     skills: ["HTML", "CSS", "WordPress", "E-commerce"],
+    link: "https://meditationalstate.com/",
     color: celadon,
-    imageSrc: require("../../images/medstate.webp"),
+    image: {
+      src: require("../../images/logo/medstate.webp"),
+      alt: "Logo for Meditational State",
+    },
   },
   {
     id: "darwinmatrix",
@@ -94,8 +105,12 @@ const projects: Project[] = [
     excerpt:
       "The Darwin Matrix is a Node.js based Web App that I assisted in maintaining and creating new features for.",
     skills: ["Javascript", "Node.js", "MongoDB", "HTML", "CSS", "JQuery"],
+    link: "https://app.darwinmatrix.com/sales-quotes",
     color: rose,
-    imageSrc: require("../../images/genericWebIcon.svg").default,
+    image: {
+      src: require("../../images/logo/darwinMatrix.jpg"),
+      alt: "Logo for the Darwin Matrix",
+    },
   },
 ];
 

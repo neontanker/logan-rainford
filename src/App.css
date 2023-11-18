@@ -2,6 +2,9 @@
   overflow: hidden;
   position: relative;
 }
+.clipped {
+  clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+}
 img {
   max-width: 100%;
   height: auto;
@@ -18,14 +21,9 @@ h5 {
 h5 {
   font-weight: 200;
 }
-a:link {
+a {
   color: #ff337a;
-}
-a:visited {
-  color: #ff337a;
-}
-a:active {
-  color: #e9f3e8;
+  text-decoration: none;
 }
 
 .page {
@@ -44,7 +42,10 @@ a:active {
   height: 100%;
   width: 100%;
   z-index: -1;
-  background-position: center;
+  object-fit: none;
+  object-position: top;
+  background-position: top;
+  background-repeat: no-repeat;
 }
 .section {
   padding: 2rem;

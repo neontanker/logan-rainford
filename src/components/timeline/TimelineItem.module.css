@@ -9,6 +9,7 @@
   right: -2rem;
   top: 0px;
   z-index: 1;
+  pointer-events: none;
 }
 .projectBorder {
   position: absolute;
@@ -30,7 +31,7 @@
   top: 0;
   left: 0;
 }
-
+/* end BoxAnimation */
 .itemContainer {
   position: relative;
   display: flex;
@@ -61,7 +62,9 @@
   border-radius: 5px;
   display: flex;
   flex-direction: column;
+  align-items: center;
   padding: 2rem;
+  color: white;
 }
 .projectTitle {
   display: flex;
@@ -73,12 +76,20 @@
 .projectTitle h5 {
   margin: 0;
 }
+.projectTitle a {
+  text-decoration: underline;
+  color: white;
+}
+.projectTitle a:hover {
+  color: #ff337a;
+}
 .logo {
   background-color: white;
   padding: 3px;
   border-radius: 10px;
   width: 64px;
   height: 64px;
+  margin: auto;
 }
 .skills {
   display: flex;

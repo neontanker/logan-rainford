@@ -11,6 +11,9 @@
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
+.timeline {
+  color: white;
+}
 @media (max-width: 768px) {
   .timeline {
     justify-content: center;

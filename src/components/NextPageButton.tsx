@@ -15,8 +15,8 @@ const NextPageButton: React.FC<{
     onNextPage();
     // Workaround for state bug when updating state too fast with mode="wait"
     setIsDisabled(true);
-    // timeout duration should be the same as (or more) the longest exit animation duration on each page
-    setTimeout(() => setIsDisabled(false), 500);
+    // timeout duration should be more than the longest exit animation duration on each page
+    setTimeout(() => setIsDisabled(false), 600);
   };
 
   const variants = {

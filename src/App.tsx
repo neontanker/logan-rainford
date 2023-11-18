@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import HomePage from "./pages/HomePage";
 import TimelinePage from "./pages/TimelinePage";
 import AboutPage from "./pages/AboutPage";
@@ -16,8 +16,6 @@ const App: React.FC = () => {
       setCurrentPage(0);
     }
   };
-
-  //@TODO: integrate background images "url(" + require("./images/sky.png") + ")"
   const pages = [
     {
       page: <HomePage key="home" pageId="home" />,
@@ -36,19 +34,27 @@ const App: React.FC = () => {
 
   return (
     <div className="app">
-      <motion.div
-        key="background"
-        initial={{ background: pages[0].background }}
-        animate={{
-          background: pages[currentPage].background,
-        }}
-        transition={{
-          duration: 1,
-        }}
-        className="background"
-      ></motion.div>
+      <AnimatePresence initial={false}>
+        <motion.div
+          key={pages[currentPage].background}
+          initial={{ opacity: 0 }}
+          animate={{
+            opacity: 1,
+          }}
+          exit={{ opacity: 0 }}
+          transition={{
+            duration: 1,
+            ease: "easeIn",
+          }}
+          style={{ background: pages[currentPage].background }}
+          className="background"
+        ></motion.div>
+      </AnimatePresence>
 
-      <Page onNextPage={handleNextPage} isLastPage={isLastPage}>
+      <Page
+        onNextPage={handleNextPage}
+        isLastPage={currentPage >= pages.length - 1}
+      >
         {pages[currentPage].page}
       </Page>
     </div>

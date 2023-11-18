@@ -1,7 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 import classes from "./TimelineItem.module.css";
-import { Project } from "./TimelineList";
 import { faCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -64,6 +63,7 @@ const TimelineItem: React.FC<{ index: number; project: Project }> = ({
       </motion.svg>
     </>
   );
+  // const onClickHandler = () => {};
   return (
     <div
       className={`${classes.itemContainer} ${
@@ -71,6 +71,7 @@ const TimelineItem: React.FC<{ index: number; project: Project }> = ({
       }`}
     >
       {BoxAnimation}
+
       <motion.li
         key={project.id}
         className={`${classes.timelineItem} ${
@@ -80,17 +81,34 @@ const TimelineItem: React.FC<{ index: number; project: Project }> = ({
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5, delay: index + 1 * 0.1 }}
       >
-        <div className={classes.contentContainer}>
+        <div
+          // @TODO:
+          // onClick={(e) => {
+          //   onClickHandler();
+          // }}
+          className={classes.contentContainer}
+        >
+          <img
+            src={project.image.src}
+            alt={project.image.alt}
+            className={classes.logo}
+          ></img>
           <div className={classes.projectTitle}>
-            <img src={project.imageSrc} alt={""} className={classes.logo}></img>
-            <h3>{project.title}</h3>
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noreferrer"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <h3>{project.title}</h3>
+            </a>
             <h5>{project.type}</h5>
           </div>
           <p>{project.excerpt}</p>
           {project.skills.length > 0 && (
             <ul className={classes.skills}>
               <li>Skills used:</li>
-              {project.skills.map((skill, i: number) => (
+              {project.skills.map((skill, i) => (
                 <li key={i}>
                   <FontAwesomeIcon icon={faCircle} className={classes.circle} />
                   {skill}
